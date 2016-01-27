@@ -2,16 +2,31 @@
 <html lang="en" ng-app="myApp">
 <head>
     <meta charset="UTF-8">
-    <title>T</title>
+    <title>Some Bank Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <style>body { padding-top:80px; }</style>
     <script src="vendors/angular/angular.min.js"></script>
     <script src="assets/scripts/client.js"></script>
 </head>
 <body ng-controller="MainController">
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1> Some Bank</h1>
+            <h1>{{user.data.username}}'s home page</h1> <br/>
 
+            <p>Account balance: {{user.data.account_balance | currency}} </p> <br/>
+            <p>Car loan: {{user.data.car_loan | currency}} </p><br/>
+            <p>Home loan: {{user.data.home_loan | currency}} </p>
+            <br/>
 
-
-<p>Success!</p>
-
-{{user.data.username}}
+            <h3>Pay your bills: </h3>
+            <form action="/payment" method="post">
+                    Car Payment:    <input type="number" id="carPayment" name="carPayment" ng-model="carPayment">
+                    House Payment:  <input type="number" id="housePayment" name="housePayment" ng-model="housePayment">
+                                    <input class="submit" type="submit" value="Submit payment">
+            </form>
+        </div>
+    </div>
 </body>
 </html>

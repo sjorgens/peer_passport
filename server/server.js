@@ -1,6 +1,3 @@
-/**
- * Created by robbynewman on 1/26/16.
- */
 var express = require('express');
 var passport = require('passport');
 var session = require('express-session');
@@ -37,7 +34,7 @@ app.use(passport.session());
 
 passport.serializeUser(function(user,done){
     console.log('serializeUser', user.id)
-   done(null, user.id);
+    done(null, user.id);
 });
 
 passport.deserializeUser(function(id, done){
